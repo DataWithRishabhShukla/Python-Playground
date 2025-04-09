@@ -167,8 +167,23 @@ Regex Metacharacters
         - {m} specifies - that exactly m copies of the previous RE should be matched 
         - {m,n} specifies - match preceding RE m to n times 
 
+        Special properties of {m,n}
+            - {,n}      -> m is assumed to be 0
+            - {m,}      -> n is condidered to be >= m
+            - {,}       -> {0,}
 
+    Regex anchors 
+        - Anchors are used to specify the location in the search string where a match must occur 
+        - Anchor ^ specifies match must be found at the beginning of the string
+        - Anchor $ specifies match much be found at the end of the string 
 
+    Regex Grouping 
+        - () is used to represent a subexpression in the group
+        - 
+
+Note :
+    1. Special characters can be retained either by escaping them or making the string as a raw string .
+    2. 
 """
 
 import re
@@ -207,7 +222,7 @@ print(re.search('\W','__main__'))
 print(re.search('[\s,.]','ttt'))
 
 # Regex repetetion Qualifiers :
-clear_terminal()
+
 print(re.search('\d-+\d','444-333'))
 
 print(re.search( '\w*@gmail.com','ac@gmail.com'))
@@ -224,3 +239,121 @@ print(re.search('\w{6}','abc98' ))
 # RE for 6 to 8 alphanumeric char 
 print(re.search('\w{6,8}','abcdef'))
 print(re.search('\w{6,8}','abcde'))
+
+# Regex Anchors 
+
+print(re.search('^Ram','Rampur' ))
+print(re.search('^Ram','rampur'))
+print(re.search('pur$','rampur'))
+print(re.search('pur$','puri'))
+
+
+
+#Regex Grouping 
+
+print(re.search('(fun[cd])','function'))
+print(re.search('(fun[cd])+','function'))
+print(re.search('fun([cd]){1,3}(on)?','function'))
+
+
+print("**Execices** " * 5)
+
+ss = 'rishabh'
+mls = 'rishabh ... \
+shukle'
+
+
+print(mls)
+
+# mls[1] ='t' # throws error as string are immutable
+
+str1 = 'c:\\temp\newline'
+str1 = r'c:\\temp\newline'
+print(str1)
+
+msg7 = 'utpia'
+msg8 = 'todday'
+msg7 = msg7 + msg8
+print(msg7)
+
+clear_terminal()
+print("Program 4.2")
+s = "Bamboozled"
+print(s[:2])
+print(s[-2:])
+
+print(s[8:])
+print(s[2:])
+print(s[-8:])
+
+print(s[:-4])
+print(s[:6])
+print(s[-10:-4])
+
+print(s[::-1])
+print(s[0:10:1])
+print(s[0:10:2])
+print(s[0:10:3])
+print(s[0:10:4])
+
+
+clear_terminal()
+print("Program 4.3")
+
+s = ['NitiAyog','And Quit Flows The Don','1234567890','Make $1000 a day','1ends with And']
+
+for ip in s :
+    if ip.isalpha() : print(f"Is alpha  : {ip}")
+    if ip.isnumeric() : print(f"Is Numeric  : {ip}")
+    if ip.islower() :print(f"is lower : {ip}")
+    if ip.isupper() :print(f"is upper : {ip}")
+    if re.search('^And | And$',ip) : print(f"starts/ends with And :{ip}")
+    # if re.search('And$',ip) : print(f"starts with And :{ip}")
+
+
+clear_terminal()
+print("Program 4.4")
+
+s1 = "Bring It On"
+print(s1.upper())
+print(s1.lower())
+print(s1.capitalize())
+print(s1.title())
+print(s1.swapcase())
+print(s1.find('I'))
+print(s1.find('O'))
+print(s1.replace('It','Him'))
+
+s2 = "  Flanked by spaces on either side    "
+print(s2.lstrip())
+print(s2.rstrip())
+
+s3 = "C:\\Users\\Kanetkar\\Documents"
+s3_raw =r"C:\\Users\\Kanetkar\\Documents"
+print(s3)
+print(s3_raw)
+
+print(s3_raw.split("\\"))
+print(s3_raw.partition("\\"))
+
+
+
+clear_terminal()
+print("Program 4.5")
+
+ip = "The Terrible Tiger Tore The Towel"
+
+idx = ip.find('T')
+
+while idx != -1 :
+    print(f"T is at {idx}")
+    idx = ip.find('T',idx+1)
+
+print(ip)
+ip2 = ip.replace('T','t',2)
+print(ip2)
+
+"""
+ip2 = ip.replace('T','t',2)
+Third parameter tell the number of characters to be replaced 
+"""
