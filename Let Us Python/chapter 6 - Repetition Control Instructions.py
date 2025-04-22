@@ -24,6 +24,14 @@ Usage of while loop - 3 Use Cases
     is better to use the for loop for the iteration 
     - Out of all three use cases listed above for loop is more appropriate for first two 
 
+Usage of for loop
+    - Repeat a set of instructions finite number of times 
+    - Iterate through list , string , dictioary, set 
+
+Break and continue 
+    - break and continue can be used within while or for loop 
+    - break can be 
+
 """
 clear_terminal()
 # while loop use case - 1 
