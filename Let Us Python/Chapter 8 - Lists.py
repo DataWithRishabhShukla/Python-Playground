@@ -90,21 +90,21 @@ Queue DS
     - Can't use list as deleting from front will require us to shift all the elements by 1 pos
     - We can use the deque for this 
         from collection import deque 
-        
+
 
 """
 import time 
-clear_terminal()
+
 
 
 # Sorting and Reversing 
 lst = [20,10,30,40]
 print(sorted(lst,reverse=True))
-print(lst1)
+print(lst)
 lst.sort()
 print(lst)
 
-time.sleep(20)
+
 # If multiple variables are referring to the same list , then deleting one does not delete othes 
 lst1 = [1,2,3]
 a = b = c = lst1
@@ -208,3 +208,118 @@ z = s + t
 print(z)
 
 # 
+
+
+######################### Exercises ################################
+
+names = ['anil', 'amol' ,'aditya', 'avi','alka']
+print(names)
+names.insert(2,'anuj')
+print(names)
+names.append('zulu')
+print(names)
+names.remove('avi')
+print(names)
+idx = names.index('anil')
+names[idx] = 'AnilKumar'
+print(names)
+names.sort()
+print(names)
+print(sorted(names,reverse=True))
+
+
+
+print("Problem 8.2")
+
+odd = [1,3,5,7,9]
+even = [2,4,6,8,10]
+
+comb = odd + even 
+print(comb)
+# comb.insert(0,)
+
+comb = [11,17,29] + comb
+print(comb)
+print(len(comb))
+print(comb)
+comb[10:] = [100,200,300]
+print(comb)
+
+del(comb[:])
+print(comb)
+del comb
+# print(comb)
+
+
+
+clear_terminal()
+print("Problem 8.4")
+
+from collections  import deque
+
+q = deque()
+q.append(1)
+q.append(2)
+q.append(3)
+q.append(4)
+q.append(5)
+
+print(q)
+q.popleft()
+
+q.popleft()
+print(q)
+
+
+
+print("Problem 8.5")
+
+import random
+
+lst = []
+for _ in range(20):
+    num = random.randint(10,100)
+    lst.append(num)
+
+print(lst)
+print(len(lst))
+
+for ele in lst :
+    if ele >= 20 and ele <= 50 :
+        lst.remove(ele)
+
+print(lst)
+print(len(lst))
+
+clear_terminal()
+print("Problem 8.6")
+
+odd = [1,3,5,7,9]
+even = [2,4,6,8]
+odd[2] = even
+
+print(odd)
+
+flatten = []
+
+for ele in  odd:
+    if isinstance(ele,list):
+        flatten.extend(ele)
+    else :
+        flatten.append(ele)
+
+print(flatten)
+flatten.sort()
+print(flatten)
+
+
+clear_terminal()
+
+nums = [random.randint(1,10) for _ in range(20)]
+print(nums)
+key = int(input("Enter : "))
+
+pos = [ idx for idx, val in enumerate(nums) if val == key ]
+print(pos)
+
+ 
